@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>maps example</title>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script>
+      function myMap() {
+        var zoom = 6;
+        var lyneham = new google.maps.LatLng( 51.507841, -1.982817);
+        var locking = new google.maps.LatLng( 51.339305, -2.901587);
+        var swinderby = new google.maps.LatLng( 53.148341, -0.664803);     
+        var places = [lyneham,locking,swinderby];
+
+        var marks = [];
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {center: places[0], zoom: zoom};
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+        for( i = 0; i < places.length; i++ ) {
+          marks.push( new google.maps.Marker({position: places[i]}) );
+          marks[i].setMap(map);
+        }
+      }
+    </script>
+  </head>
+
+  <body class="w3-container w3-light-blue">
+    
+    <header align=center class="w3-container w3-indigo w3-margin w3-xxlarge w3-padding-4">
+      Google Maps page
+    </header>
+
+    <section class="w3-container w3-indigo w3-margin w3-padding-16">
+      <div id="map" style="width:100%;height:500px"></div>
+    </section>
+
+    <footer width=100% align=right class="w3-container w3-indigo w3-margin w3-padding-16">
+      <div  class="w3-right">Castleknock coderdojo HTML-CSS-(JS) Winter 2016</div>
+    </footer>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGJ4KjEe97Lkv183I31qJaofBUUZREoyk&callback=myMap"></script>
+  </body>
+
+</html>
